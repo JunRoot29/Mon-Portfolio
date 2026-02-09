@@ -119,20 +119,38 @@ if (contactForm) {
     });
 }
 
-const revealElements = document.querySelectorAll('section');
-revealElements.forEach((section) => section.classList.add('reveal'));
+const revealGroups = [
+    '.hero-text > *',
+    '.hero-image',
+    '.stat-item',
+    '.about-text > *',
+    '.info-item',
+    '.tag',
+    '.skill-category',
+    '.project-card',
+    '.category',
+    '.timeline-item',
+    '.contact-item',
+    '.contact-form'
+];
 
-const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry, index) => {
+const revealElements = document.querySelectorAll(revealGroups.join(', '));
+revealElements.forEach((element, index) => {
+    element.classList.add('reveal');
+    const delay = (index % 8) * 70;
+    element.style.transitionDelay = `${delay}ms`;
+});
+
+const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
         if (entry.isIntersecting) {
-            setTimeout(() => {
-                entry.target.classList.add('is-visible');
-            }, index * 80);
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
         }
     });
 }, { threshold: 0.2 });
 
-revealElements.forEach((section) => revealObserver.observe(section));
+revealElements.forEach((element) => revealObserver.observe(element));
 
 const floatingElements = document.querySelectorAll('.floating-element');
 floatingElements.forEach((element, index) => {
