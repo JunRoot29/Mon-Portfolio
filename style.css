@@ -1191,6 +1191,48 @@ a.is-placeholder {
         justify-content: center;
     }
 
+    .projects-grid {
+        gap: 1.2rem;
+    }
+
+    .project-card {
+        padding: 1.35rem;
+        border-radius: 14px;
+    }
+
+    .project-icon {
+        width: 56px;
+        height: 56px;
+        margin-bottom: 1rem;
+        font-size: 1.35rem;
+    }
+
+    .project-card h3 {
+        font-size: 1.18rem;
+        margin-bottom: 0.55rem;
+        line-height: 1.35;
+    }
+
+    .project-card p {
+        font-size: 0.95rem;
+        line-height: 1.58;
+        margin-bottom: 0.9rem;
+    }
+
+    .project-details {
+        margin-top: 1rem;
+        padding-top: 1rem;
+    }
+
+    .project-details h4 {
+        font-size: 0.95rem;
+    }
+
+    .project-details li {
+        font-size: 0.88rem;
+        margin-bottom: 0.22rem;
+    }
+
     .stats-grid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -1224,5 +1266,17 @@ a.is-placeholder {
     .project-tech span {
         font-size: 0.7rem;
         padding: 0.2rem 0.6rem;
+    }
+
+    .project-card {
+        padding: 1.15rem;
+    }
+
+    .project-card h3 {
+        font-size: 1.08rem;
+    }
+
+    .project-card p {
+        font-size: 0.92rem;
     }
 }
