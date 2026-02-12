@@ -157,6 +157,21 @@ floatingElements.forEach((element, index) => {
     element.style.animationDelay = `${index * 2}s`;
 });
 
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const scrollProgress = document.querySelector('.scroll-progress');
+
+const updateScrollProgress = () => {
+    if (!scrollProgress) {
+        return;
+    }
+
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = max > 0 ? (window.scrollY / max) * 100 : 0;
+    scrollProgress.style.width = `${Math.min(100, Math.max(0, progress))}%`;
+};
+
+updateScrollProgress();
+
 window.addEventListener('scroll', () => {
     const navbar = document.querySelector('.navbar');
     if (!navbar) {
@@ -167,6 +182,8 @@ window.addEventListener('scroll', () => {
     } else {
         navbar.classList.remove('is-scrolled');
     }
+
+    updateScrollProgress();
 });
 
 document.querySelectorAll('a[href="#"]').forEach((link) => {
@@ -181,3 +198,27 @@ document.querySelectorAll('a[href="#"]').forEach((link) => {
         }, 1000);
     });
 });
+
+if (!prefersReducedMotion) {
+    const hero = document.querySelector('.hero');
+    const parallaxTargets = document.querySelectorAll('.orb, .floating-element');
+
+    if (hero && parallaxTargets.length) {
+        hero.addEventListener('mousemove', (event) => {
+            const rect = hero.getBoundingClientRect();
+            const x = (event.clientX - rect.left) / rect.width - 0.5;
+            const y = (event.clientY - rect.top) / rect.height - 0.5;
+
+            parallaxTargets.forEach((node, index) => {
+                const depth = (index % 3 + 1) * 4;
+                node.style.transform = `translate(${x * depth}px, ${y * depth}px)`;
+            });
+        });
+
+        hero.addEventListener('mouseleave', () => {
+            parallaxTargets.forEach((node) => {
+                node.style.transform = '';
+            });
+        });
+    }
+}

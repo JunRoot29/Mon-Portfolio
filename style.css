@@ -30,7 +30,10 @@ body {
     font-family: 'DM Sans', sans-serif;
     line-height: 1.6;
     color: var(--ink);
-    background: var(--bg);
+    background:
+        radial-gradient(circle at 12% 18%, rgba(16, 165, 165, 0.1), transparent 36%),
+        radial-gradient(circle at 88% 82%, rgba(255, 138, 61, 0.12), transparent 34%),
+        var(--bg);
     overflow-x: hidden;
 }
 
@@ -81,6 +84,17 @@ h1, h2, h3, h4 {
 }
 
 /* Navigation */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    z-index: 1200;
+    box-shadow: 0 0 18px rgba(16, 165, 165, 0.5);
+}
+
 .navbar {
     position: fixed;
     top: 0;
@@ -210,6 +224,7 @@ h1, h2, h3, h4 {
         linear-gradient(90deg, transparent 0 97%, rgba(255, 138, 61, 0.08) 98% 100%);
     background-size: 120px 120px;
     opacity: 0.3;
+    animation: sheenShift 16s linear infinite;
 }
 
 .hero-content {
@@ -332,24 +347,54 @@ h1, h2, h3, h4 {
 
 .hero-image {
     position: relative;
+    display: grid;
+    place-items: center;
 }
 
-.image-placeholder {
+.profile-frame {
     width: 340px;
     height: 340px;
-    background: linear-gradient(135deg, var(--primary), var(--accent));
+    padding: 10px;
+    background: linear-gradient(135deg, rgba(16, 165, 165, 1), rgba(255, 138, 61, 0.94));
     border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     margin: 0 auto;
     animation: morphing 15s infinite ease-in-out;
-    box-shadow: 0 30px 60px rgba(16, 165, 165, 0.3);
+    box-shadow: 0 35px 70px rgba(16, 165, 165, 0.28), 0 0 0 1px rgba(255, 255, 255, 0.6) inset;
+    position: relative;
+    z-index: 2;
 }
 
-.image-placeholder i {
-    font-size: 6.8rem;
-    color: white;
+.profile-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    border-radius: inherit;
+    border: 3px solid rgba(255, 255, 255, 0.55);
+}
+
+.profile-badge {
+    position: absolute;
+    bottom: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    background: rgba(14, 27, 43, 0.84);
+    color: #f9fbff;
+    border: 1px solid rgba(255, 255, 255, 0.24);
+    border-radius: 999px;
+    padding: 0.45rem 0.95rem;
+    font-size: 0.82rem;
+    font-weight: 600;
+    backdrop-filter: blur(6px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.22);
+    z-index: 3;
+}
+
+.profile-badge i {
+    color: #41d5c8;
 }
 
 .orbit {
@@ -358,6 +403,7 @@ h1, h2, h3, h4 {
     display: grid;
     place-items: center;
     pointer-events: none;
+    z-index: 1;
 }
 
 .orbit-ring {
@@ -384,6 +430,7 @@ h1, h2, h3, h4 {
 .floating-elements {
     position: absolute;
     inset: 0;
+    z-index: 3;
 }
 
 .floating-element {
@@ -622,6 +669,7 @@ h1, h2, h3, h4 {
     position: relative;
     overflow: hidden;
     border: 1px solid rgba(15, 23, 42, 0.06);
+    isolation: isolate;
 }
 
 .project-card:nth-child(4n + 1) {
@@ -647,6 +695,26 @@ h1, h2, h3, h4 {
 
 .project-card:hover::before {
     opacity: 1;
+}
+
+.project-card::after {
+    content: '';
+    position: absolute;
+    top: -130%;
+    left: -35%;
+    width: 70%;
+    height: 300%;
+    transform: rotate(20deg);
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.45), transparent);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.project-card:hover::after {
+    opacity: 1;
+    animation: cardShine 1.1s ease;
 }
 
 .project-card.is-fading {
@@ -1013,6 +1081,16 @@ h1, h2, h3, h4 {
     to { transform: rotate(360deg); }
 }
 
+@keyframes sheenShift {
+    from { transform: translateX(0); }
+    to { transform: translateX(120px); }
+}
+
+@keyframes cardShine {
+    from { transform: translateX(-35%) rotate(20deg); }
+    to { transform: translateX(220%) rotate(20deg); }
+}
+
 .reveal {
     opacity: 0;
     transform: translateY(26px) scale(0.98);
@@ -1117,7 +1195,7 @@ a.is-placeholder {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .image-placeholder {
+    .profile-frame {
         width: 280px;
         height: 280px;
     }
@@ -1125,6 +1203,11 @@ a.is-placeholder {
     .orbit-ring {
         width: 330px;
         height: 330px;
+    }
+
+    .profile-badge {
+        font-size: 0.75rem;
+        padding: 0.35rem 0.8rem;
     }
 }
 

@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="scroll-progress" aria-hidden="true"></div>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
@@ -63,8 +64,12 @@
                     </div>
                 </div>
                 <div class="hero-image">
-                    <div class="image-placeholder">
-                        <i class="fas fa-user-shield"></i>
+                    <div class="profile-frame">
+                        <img src="Doc/1770812254707.png" alt="Portrait de Kossivi Jacques Junior AGBENONZAN" class="profile-photo">
+                    </div>
+                    <div class="profile-badge">
+                        <i class="fas fa-shield-heart"></i>
+                        <span>Cyber & Reseaux</span>
                     </div>
                     <div class="orbit" aria-hidden="true">
                         <span class="orbit-ring"></span>
@@ -88,7 +93,7 @@
             <div class="stats-grid">
                 <div class="stat-item">
                     <i class="fas fa-project-diagram"></i>
-                    <h3 class="stat-number" data-count="7">7</h3>
+                    <h3 class="stat-number" data-count="10">10</h3>
                     <p>Projets réalisés</p>
                 </div>
                 <div class="stat-item">
@@ -280,8 +285,7 @@
                             <li>Interpolation de Lagrange</li>
                         </ul>
                         <div class="project-links">
-                            <a href="https://github.com/JunRoot29/MathCraft-Web" target="_blank" class="project-link" rel="noreferrer"><i class="fab fa-github"></i> Code</a>
-                            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live</a>
+                            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live (a venir)</a>
                         </div>
                     </div>
                 </div>
@@ -308,8 +312,9 @@
                             <li>Analyse forensic</li>
                         </ul>
                         <div class="project-links">
-                            <a href="#" class="project-link"><i class="fab fa-github"></i> Dépôt</a>
-                            <a href="#" class="project-link"><i class="fas fa-file-pdf"></i> Rapport</a>
+                            <a href="https://github.com/JunRoot29/TP3---CyberSecurit---AGBENONZAN-JUNIOR-SANOGO-SOULEYMANE.git" target="_blank" class="project-link" rel="noreferrer"><i class="fab fa-github"></i> Depot</a>
+                            <a href="Doc/Documentation%20-%20Pro%20Fil%20rouge.docx" target="_blank" class="project-link" rel="noreferrer"><i class="fas fa-file-word"></i> Documentation</a>
+                            <a href="Doc/Rapport%20Final%20%E2%80%94%20Projet%20Fil%20rouge.docx" target="_blank" class="project-link" rel="noreferrer"><i class="fas fa-file-word"></i> Rapport final</a>
                         </div>
                     </div>
                 </div>
@@ -336,7 +341,7 @@
                             <li>SEO optimisé</li>
                         </ul>
                         <div class="project-links">
-                            <a href="#" class="project-link"><i class="fas fa-eye"></i> Voir le site</a>
+                            <a href="#" class="project-link"><i class="fas fa-eye"></i> Lien a venir</a>
                         </div>
                     </div>
                 </div>
@@ -355,7 +360,8 @@
                     </div>
                     <div class="project-details">
                         <div class="project-links">
-                            <a href="#" class="project-link"><i class="fab fa-aws"></i> Architecture</a>
+                            <a href="https://ufhb-frontend-jjk.s3.eu-north-1.amazonaws.com/index.html" target="_blank" class="project-link" rel="noreferrer"><i class="fas fa-external-link-alt"></i> Live</a>
+                            <a href="https://github.com/JunRoot29/Site-Ufhb.git" target="_blank" class="project-link" rel="noreferrer"><i class="fab fa-github"></i> Depot</a>
                         </div>
                     </div>
                 </div>
@@ -374,7 +380,7 @@
                     </div>
                     <div class="project-details">
                         <div class="project-links">
-                            <a href="#" class="project-link"><i class="fab fa-python"></i> Code source</a>
+                            <a href="https://github.com/JunRoot29/MathCraft.git" target="_blank" class="project-link" rel="noreferrer"><i class="fab fa-github"></i> Depot</a>
                         </div>
                     </div>
                 </div>
@@ -393,7 +399,7 @@
                     </div>
                     <div class="project-details">
                         <div class="project-links">
-                            <a href="#" class="project-link"><i class="fas fa-chart-line"></i> Analyses</a>
+                            <a href="Doc/Analyse%20WireShark.docx" target="_blank" class="project-link" rel="noreferrer"><i class="fas fa-file-word"></i> Rapport</a>
                         </div>
                     </div>
                 </div>
@@ -411,6 +417,7 @@
                         <span>VMware</span>
                         <span>Postfix</span>
                     </div>
+                    <div class="project-details">
                         <div class="project-stats">
                             <div class="stat">
                                 <span class="stat-number">3</span>
@@ -418,8 +425,89 @@
                             </div>
                         </div>
                         <div class="project-links">
-                            <a href="centreon.pdf" target="_blank" class="project-link"><i class="fas fa-file-pdf"></i> Rapport PDF</a>
-                            <a href="#" class="project-link"><i class="fas fa-diagram-project"></i> Architecture</a>
+                            <a href="Doc/centreon.pdf" target="_blank" class="project-link" rel="noreferrer"><i class="fas fa-file-pdf"></i> Rapport PDF</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projet 8 - Gestion de Bibliothèque -->
+                <div class="project-card" data-category="web">
+                    <div class="project-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3>Systeme de Gestion de Bibliotheque</h3>
+                    <p>Application web academique avec Flask, SQLite et interface HTML/CSS pour gerer comptes, catalogue, emprunts et reservations.</p>
+                    <div class="project-tech">
+                        <span>Python</span>
+                        <span>Flask</span>
+                        <span>SQLite</span>
+                        <span>HTML/CSS</span>
+                    </div>
+                    <div class="project-details">
+                        <h4>Points forts :</h4>
+                        <ul>
+                            <li>Gestion des roles admin/usager</li>
+                            <li>Workflow complet d'emprunt et retour</li>
+                            <li>Dashboards avec indicateurs et alertes</li>
+                            <li>Recherche multi-criteres sur le catalogue</li>
+                        </ul>
+                        <div class="project-links">
+                            <a href="https://github.com/JunRoot29/Gestion-d-une-Bibliotheque.git" target="_blank" class="project-link" rel="noreferrer"><i class="fab fa-github"></i> Depot</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projet 9 - Inscription en ligne UFHB -->
+                <div class="project-card" data-category="web">
+                    <div class="project-icon">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <h3>Simulation d'inscription en ligne UFHB</h3>
+                    <p>Application de gestion des inscriptions universitaires avec interface web Flask et application mobile Kivy, base SQLite.</p>
+                    <div class="project-tech">
+                        <span>Flask</span>
+                        <span>Kivy</span>
+                        <span>SQLite</span>
+                        <span>Python</span>
+                    </div>
+                    <div class="project-details">
+                        <h4>Workflow metier :</h4>
+                        <ul>
+                            <li>Creation et suivi de dossier etudiant</li>
+                            <li>Validation pedagogique avec statuts</li>
+                            <li>Paiement puis decision administrative finale</li>
+                            <li>Tableau de bord, filtres et donnees de demo</li>
+                        </ul>
+                        <div class="project-links">
+                            <a href="https://github.com/JunRoot29/TP---FIN-DE-MODULE---GENIE-LOGICIEL.git" target="_blank" class="project-link" rel="noreferrer"><i class="fab fa-github"></i> Depot</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projet 10 - DHCP DORA IPv4 vs IPv6 -->
+                <div class="project-card" data-category="security">
+                    <div class="project-icon">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3>Analyse DHCP DORA IPv4 vs IPv6</h3>
+                    <p>Analyse comparative du processus DORA entre la norme DHCP et son comportement reel via captures Wireshark.</p>
+                    <div class="project-tech">
+                        <span>DHCP</span>
+                        <span>Wireshark</span>
+                        <span>IPv4/IPv6</span>
+                        <span>Kathara</span>
+                    </div>
+                    <div class="project-details">
+                        <h4>Livrables :</h4>
+                        <ul>
+                            <li>Captures PCAP DHCPv4 et DHCPv6</li>
+                            <li>Comparatif broadcast, multicast et unicast</li>
+                            <li>Screenshots annotees sous Wireshark</li>
+                            <li>Analyse concise du processus DORA</li>
+                        </ul>
+                        <div class="project-links">
+                            <a href="https://github.com/JunRoot29/Projet-DHCP-Analyse-du-processus-DORA-IPv4-vs-IPv6-.git" target="_blank" class="project-link" rel="noreferrer"><i class="fab fa-github"></i> Depot</a>
+                            <a href="Doc/TP%20%E2%80%93%20DHCP.pdf" target="_blank" class="project-link" rel="noreferrer"><i class="fas fa-file-pdf"></i> Rapport</a>
                         </div>
                     </div>
                 </div>
@@ -461,7 +549,7 @@
                     <div class="timeline-content">
                         <h3>Licence 2 (DEUG II) en Sciences Informatiques</h3>
                         <p>UFR de Mathématique et Informatique</p>
-                        <p class="institution">Université Félix Houphouët-Boigny</p>
+                        <p class="institution">Université Félix Houphouët-Boigny, Abidjan</p>
                     </div>
                 </div>
                 <div class="timeline-item">
@@ -469,14 +557,15 @@
                     <div class="timeline-content">
                         <h3>Licence 1 (DEUG I) Mathématique et application</h3>
                         <p>UFR de Mathématique et Informatique</p>
-                        <p class="institution">Université Félix Houphouët-Boigny</p>
+                        <p class="institution">Université Félix Houphouët-Boigny, Abidjan</p>
                     </div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-date">2021 - 2022</div>
                     <div class="timeline-content">
-                        <h3>Baccalauréat Série D</h3>
-                        <p>Lycée Moderne de Port Bouet</p>
+                        <h3>Baccalauréat</h3>
+                        <p> Série D (Scientifique)</p>
+                        <p class="institution">Lycée Moderne de Port Bouet, Abidjan</p>
                     </div>
                 </div>
             </div>
